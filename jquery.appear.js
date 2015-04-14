@@ -91,7 +91,7 @@
                 if (settings.one) {
 
                     //remove the check
-                    w.unbind('scroll', check);
+                    w.off('scroll touchmove', check);
                     var i = $.inArray(check, $.fn.appear.checks);
                     if (i >= 0) $.fn.appear.checks.splice(i, 1);
                 }
@@ -105,7 +105,7 @@
             else t.bind('appear', settings.data, modifiedFn);
 
             //check whenever the window scrolls
-            w.scroll(check);
+            w.on('scroll touchmove', check);
 
             //check whenever the dom changes
             $.fn.appear.checks.push(check);
